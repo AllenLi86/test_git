@@ -1,0 +1,12 @@
+本地資料git到gitLab步驟的意義和解釋:
+
+1. git init: 初始化本地的 Git 儲存庫。
+2. git add .: 將所有變更加入 Git 的暫存區。
+3. git commit -m "Initial commit": 將暫存區的變更提交到本地儲存庫。
+4. 在 GitLab 上建立一個空的存儲庫。
+5. git remote add origin [GitLab 存儲庫的 URL]: 將本地的 Git 儲存庫與 GitLab 上的存儲庫關聯起來，並指定 GitLab 存儲庫為遠端儲存庫的別名 origin。
+6. git branch -M main: 將本地儲存庫的預設分支名稱改為 main。
+7. git pull origin main --allow-unrelated-histories: 這個指令的意義是將遠端儲存庫的 main 分支合併到本地儲存庫的 main 分支，並且允許合併無關的歷史。因為本地儲存庫和遠端儲存庫的歷史是獨立的，因此需要這個指令來讓它們合併。
+8. git push origin main: 將本地儲存庫的 main 分支推送到遠端儲存庫的 main 分支。
+
+注意，第七步中的 --allow-unrelated-histories 參數是因為本地儲存庫和遠端儲存庫的歷史是獨立的，如果不加這個參數的話就會拒絕合併。這個參數的作用是告訴 Git 允許合併無關的歷史。在一些舊版的 Git 中可能沒有這個參數，需要手動設定才能執行合併。
